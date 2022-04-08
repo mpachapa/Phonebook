@@ -1,0 +1,12 @@
+{
+  "dependencies": {
+    "express": "^4.17.3",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.15"
+  },
+"scripts": {
+  "test": "echo \"Error: no test specified\" && exit 1",
+  "start": "node script.js",
+  "dev": "nodemon script.js"
+}
+}
