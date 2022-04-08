@@ -30,7 +30,7 @@ let persons = [
 ];
 //Front Page
 app.get("/", (request, response) => {
-  response.send("<h2>Hello World!!</h2><br><p>This is my phonebook webserer that uses express, morgan and nodemon</p>");
+  response.send("<h2>Hello World!!</h2><br><p>This is my phonebook webserer that uses express, morgan and nodemon. I used postman to POST, DELTE, and GET.</p>");
 });
 //Info status Page
 app.get("/info", (request, response) => {
