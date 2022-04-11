@@ -35,12 +35,12 @@ app.get("/", (request, response) => {
 //Info status Page
 app.get("/info", (request, response) => {
   response.send(
-    `<h1>Phonebook has info for four people</h1><br><p>${new Date()}</p>`
+    `<h1>Phonebook has info for ${persons.length} people</h1><br><p>${new Date()}</p>`
   );
 });
 //Returns all people in the Phonebook
 app.get("/api/persons", morgan(`tiny`), (request, response) => {
-  response.send(JSON.stringify(persons));
+  response.json(persons);
 });
 //Returns specified id or 404 error if doesn't exist
 app.get("/api/persons/:id", (request, response) => {
@@ -68,9 +68,9 @@ app.post("/api/persons", (request, response) => {
     name: body.name,
     number: body.number,
   };
-  if (!body.name) {
+  if (body.name == "") {
     return response.status(400).json({ error: "name is missing" });
-  } else if (!body.number) {
+  } else if (body.number == "") {
     return response.status(400).json({ error: "number is missing" });
   }
   if (persons.map((x) => x.name).includes(body.name)) {
